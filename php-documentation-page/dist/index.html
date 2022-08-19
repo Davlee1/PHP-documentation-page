@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - PHP Documentation page</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<script src="https://kit.fontawesome.com/b7567ef832.js" crossorigin="anonymous"></script>
+
+<nav id="navbar">
+
+  <div id="title">
+    <header>PHP<br><span style="font-size: 1rem;">Hypertext Preprocessor</span></header>
+
+    <a href="javascript:void(0);" class="icon" onclick="navList_Switch()">
+      <i class="fa-solid fa-bars"></i></a>
+  </div>
+
+  <div class="navlist" id="navlist">
+    <a class="nav-link" href="#Introduction" onclick="closenav()">Introduction</a>
+
+    <a class="nav-link" href="#What_you_should_already_know" onclick="closenav()">What you should already know</a>
+
+    <a class="nav-link" href="#Hello_world" onclick="closenav()">Hello world</a>
+
+    <a class="nav-link" href="#Variables" onclick="closenav()">Variables</a>
+
+    <a class="nav-link" href="#Declaring_variables" onclick="closenav()">Declaring variables</a>
+
+    <a class="nav-link" href="#Variable_scope" onclick="closenav()">Variable scope</a>
+
+    <a class="nav-link" href="#Global_variables" onclick="closenav()">Global variables</a>
+
+    <a class="nav-link" href="#Constants" onclick="closenav()">Constants</a>
+
+    <a class="nav-link" href="#Data_types" onclick="closenav()">Data types</a>
+
+    <a class="nav-link" href="#If...else_statements" onclick="closenav()">If...else statements</a>
+
+    <a class="nav-link" href="#Looping_statements" onclick="closenav()">Looping statements</a>
+
+    <a class="nav-link" href="#Arrays" onclick="closenav()">Arrays</a>
+
+    <a class="nav-link" href="#Function_declarations" onclick="closenav()">Function declarations</a></li>
+
+    <a class="nav-link" href="#Reference" onclick="closenav()">Reference</a>
+  </div>
+</nav>
+
+<main id="main-doc">
+  <section class="main-section" id="Introduction">
+    <header>Introduction</header>
+    <p>&emsp;&emsp;PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used open source general-purpose scripting language that is especially suited for web development and can be embedded into HTML.<br><br>Nice, but what does that mean? Here is an example: </p>
+    <!--<h2>Example #1 An introductory example</h2>-->
+
+    <p class="code-container">
+      <code>
+
+        &lt!DOCTYPE html><br>
+        &lthtml><br>
+        &emsp;&emsp;&lthead><br>
+        &emsp;&emsp;&emsp;&emsp; &lttitle>Example&lttitle><br>
+        &emsp;&emsp;&lt/head><br>
+        &emsp;&emsp;&ltbody><br><br>
+
+        &emsp;&emsp;&emsp;&emsp;&lt?php<br>
+        &emsp;&emsp;&emsp;&emsp;&emsp; echo "Hi, I'm a PHP script!";<br>
+        &emsp;&emsp;&emsp;&emsp;?><br><br>
+
+        &emsp;&emsp;&lt/body><br>
+        &lt/html>
+
+      </code>
+    </p>
+
+    <p>Instead of lots of commands to output HTML, PHP pages contain HTML with embedded code that does "something" (in this case, output "Hi, I'm a PHP script!"). The PHP code is enclosed in special start and end processing instructions &lt?php and ?> that allow you to jump into and out of "PHP mode."<br><br>What distinguishes PHP from something like client-side JavaScript is that the code is executed on the server, generating HTML which is then sent to the client. The client would receive the results of running that script, but would not know what the underlying code was. You can even configure your web server to process all your HTML files with PHP, and then there's really no way that users can tell what you have up your sleeve.<br><br>The best part about using PHP is that it is extremely simple for a newcomer, but offers many advanced features for a professional programmer. Don't be afraid to read the long list of PHP's features. You can jump in, in a short time, and start writing simple scripts in a few hours. </p>
+
+  </section>
+
+  <section class="main-section" id="What_you_should_already_know">
+    <header>What you should already know</header>
+    <p>Some useful background knowledge before reading this guide would be:
+    <ul>
+      <li>A good understanding of how the internet functions</li>
+      <li>Experience and comfortability writing HyperText Markup Language (HTML)</li>
+      <li>Some experience programming</li>
+
+    </ul>
+    </p>
+
+  </section>
+
+  <section class="main-section" id="Hello_world">
+    <header>Hello world</header>
+    <p>&emsp;&emsp;As per tradition when learning any programming language, enter the following code in your code editor to start your PHP journey:</p>
+    <p class="code-container">
+      <code>&emsp;&emsp;&lt?php<br>
+        &emsp;&emsp;&emsp;&emsp;echo "Hello World!";<br>
+        &emsp;&emsp;?>
+      </code>
+    </p>
+
+  </section>
+
+  <section class="main-section" id="Variables">
+    <header>Variables</header>
+    <p>&emsp;&emsp;Variables in PHP are represented by a dollar sign followed by the name of the variable. The variable name is case-sensitive. Variable names follow the same rules as other labels in PHP. A valid variable name starts with a letter or underscore, followed by any number of letters, numbers, or underscores.</p>
+  </section>
+
+  <section class="main-section" id="Declaring_variables">
+    <header>Declaring variables</header>
+    <p>&emsp;&emsp;Variables are declared by using the $ symbol, followed by the variable name as shown below:</p>
+
+    <p class="code-container">
+      <code>
+        &lt?php<br>
+        $var = 'Bob';<br>
+        $Var = 'Joe';<br>
+        echo "$var, $Var";&emsp;&emsp;<span class="comment">//outputs "Bob, Joe"</span><br><br>
+
+        $4site = 'not yet'; &emsp;&emsp; <span class="comment">//invalid; starts with a number</span><br>
+        $_4site = 'not yet';&emsp;&emsp;<span class="comment">//valid; starts with an underscore</span><br>
+        $täyte = 'mansikka';&emsp;&emsp;<span class="comment">//valid; 'ä' is (Extended) ASCII 228.</span><br>
+        ?>
+      </code>
+    </p>
+
+    <p>By default, variables are always assigned by value. That is to say, when you assign an expression to a variable, the entire value of the original expression is copied into the destination variable. This means that after assigning one variable's value to another, changing one of those variables will have no effect on the other.</p>
+  </section>
+
+  <section class="main-section" id="Variable_scope">
+    <header>Variable scope</header>
+    <p>&emsp;&emsp;The scope of a variable is the context with which it is defined. For the most part all PHP variables only have a single scope. This single scope spans included and required files as well. For example:</p>
+
+    <p class="code-container">
+      <code>
+        &lt?php<br>
+        $a = 1;<br>
+        include 'b.inc'<br>
+        ?>
+      </code>
+    </p>
+    <p>Here the $a variable will be available within the included b.inc script. However, within user-defined functions a local function scope is introduced. Any variable used inside a function is by default limited to the local function scope. For example: </p>
+
+    <p class="code-container">
+      <code>
+        &lt?php<br>
+        $a = 1; <span class="comment">/*global scope */<br></span>
+        function test()<br>
+        {<br>
+        &emsp;&emsp;echo $a; <span class="comment">/* reference to local scope variable */</span>
+        }<br><br>
+
+        test();<br>
+        ?>
+      </code>
+    </p>
+    <p>This script will not produce any output because the echo statement refers to a local version of the $a variable, and it has not been assigned a value within this scope. This can cause some problems in that people may inadvertently change a global variable. In PHP global variables must be declared global inside a function if they are going to be used in that function. </p>
+  </section>
+
+  <section class="main-section" id="Global_variables">
+    <header>Global variables</header>
+    <p>&emsp;&emsp;As mentioned in the previous section, variables initialized outside of any function will have global scope. It is necesary to use the Global keyword however to ensure these variables are accessable. First, an example use of global:</p>
+
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        $a = 1;<br>
+        $b = 2;<br>
+        <br>
+        function Sum()<br>
+        {<br>
+        &emsp;&emsp;global $a, $b;<br>
+        <br>
+        &emsp;&emsp;$b = $a + $b;<br>
+        }<br>
+        <br>
+        Sum();<br>
+        echo $b;<br>
+        ?><br>
+
+      </code>
+    </p>
+    <p> The above script will output 3. By declaring $a and $b global within the function, all references to either variable will refer to the global version. There is no limit to the number of global variables that can be manipulated by a function.<br><br>
+
+      A second way to access variables from the global scope is to use the special PHP-defined $GLOBALS array. The previous example can be rewritten as: </p>
+
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        $a = 1;<br>
+        $b = 2;<br>
+        <br>
+        function Sum()<br>
+        {<br>
+        &emsp;&emsp;$GLOBALS['b'] = $GLOBALS['a'] + $GLOBALS['b'];<br>
+        }<br>
+        <br>
+        Sum();<br>
+        echo $b;<br>
+        ?><br>
+
+      </code>
+    </p>
+    <p>The $GLOBALS array is an associative array with the name of the global variable being the key and the contents of that variable being the value of the array element. Notice how $GLOBALS exists in any scope, this is because $GLOBALS is a superglobal. Here's an example demonstrating the power of superglobals:</p>
+
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        function test_superglobal()<br>
+        {<br>
+        &emsp;&emsp;echo $_POST['name'];<br>
+        }<br>
+        ?><br>
+
+      </code>
+    </p>
+  </section>
+
+  <section class="main-section" id="Constants">
+    <header>Constants</header>
+    <p>&emsp;&emsp;Constants can be defined using the const keyword, or by using the define()-function. While define() allows a constant to be defined to an arbitrary expression, the const keyword has restrictions as outlined in the next paragraph. Once a constant is defined, it can never be changed or undefined.<br><br>
+
+      When using the const keyword, only scalar (bool, int, float and string) expressions and constant arrays containing only scalar expressions are accepted. It is possible to define constants as a resource, but it should be avoided, as it can cause unexpected results.
+      <br><br>
+      The value of a constant is accessed simply by specifying its name. Unlike variables, a constant is not prepended with a $. It is also possible to use the constant() function to read a constant's value if the constant's name is obtained dynamically. Use get_defined_constants() to get a list of all defined constants.<br><br>
+      These are the differences between constants and variables:
+    </p>
+    <ul>
+      <li>Constants do not have a dollar sign ($) before them</li>
+      <li>Constants may be defined and accessed anywhere without regard to variable scoping rules</li>
+      <li>Constants may not be redefined or undefined once they have been set</li>
+      <li>Constants may only evaluate to scalar values or arrays</li>
+    </ul>
+    <br>
+    <p>Here is an example declaring a constant using the define() function:</p>
+
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        define("CONSTANT", "Hello world.");<br>
+        echo CONSTANT;&emsp;&emsp;<span class="comment">//outputs "Hello world."</span><br>
+        echo Constant;&emsp;&emsp;<span class="comment">//Emits an Error: Undefined constant "Constant"</span><br>
+        &emsp;&emsp;&emsp;&emsp;<span class="comment">//Prior to PHP 8.0.0, outputs "Constant" and issues a warning.</span><br>
+        ?><br>
+
+      </code>
+    </p>
+    <p>Here is an example declaring a constant using the const keyword:</p>
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        <span class="comment">//Simple scalar value</span><br>
+        const CONSTANT = 'Hello World';<br>
+        <br>
+        echo CONSTANT;<br>
+        <br>
+        <span class="comment">//Scalar expression</span><br>
+        const ANOTHER_CONST = CONSTANT.'; Goodbye World';<br>
+        echo ANOTHER_CONST;<br>
+        <br>
+        const ANIMALS = array('dog', 'cat', 'bird');<br>
+        echo ANIMALS[1]; <span class="comment">//outputs "cat"</span><br>
+        <br>
+        <span class="comment">//Constant arrays</span><br>
+        define('ANIMALS', array(<br>
+        &emsp;&emsp;'dog',<br>
+        &emsp;&emsp;'cat',<br>
+        &emsp;&emsp;'bird'<br>
+        ));<br>
+        echo ANIMALS[1]; <span class="comment">//outputs "cat"</span><br>
+        ?>
+
+      </code>
+    </p>
+  </section>
+
+  <section class="main-section" id="Data_types">
+    <header>Data types</header>
+    <p> PHP supports ten primitive types.<br><br>
+
+      Four scalar types:</p>
+    <ul>
+      <li>bool</li>
+      <li>int</li>
+      <li>float (floating-point number, aka double)</li>
+      <li>string</li>
+    </ul>
+    <p>Four compound types:</p>
+    <ul>
+      <li>array</li>
+      <li>object</li>
+      <li>callable</li>
+      <li>iterable</li>
+    </ul>
+    <p>And finally two special types:</p>
+    <ul>
+      <li>resource</li>
+      <li>NULL</li>
+    </ul>
+    <p>Some references to the type "double" may remain in the online PHP manual. Consider double the same as float; the two names exist only for historic reasons.
+
+      The type of a variable is not usually set by the programmer; rather, it is decided at runtime by PHP depending on the context in which that variable is used.<br><br>
+
+      Here are some example data types:</p>
+
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        $a_bool = TRUE;&emsp;&emsp;<span class="comment">//a boolean</span><br>
+        $a_str = "foo";&emsp;&emsp;<span class="comment">//a string</span><br>
+        $a_str2 = 'foo';&emsp;&emsp;<span class="comment">//a string</span><br>
+        $an_int = 12;&emsp;&emsp;<span class="comment">//an integer</span><br>
+        <br>
+        echo gettype($a_bool);&emsp;&emsp;<span class="comment">//prints out: boolean</span><br>
+        echo gettype($a_str);&emsp;&emsp;<span class="comment">//prints out: string</span><br>
+
+        ?>
+
+      </code>
+    </p>
+  </section>
+
+  <section class="main-section" id="If...else_statements">
+    <header>If...else statements</header>
+    <h2>If statements</h2>
+    <p>&emsp;&emsp;The if construct is one of the most important features of many languages, PHP included. It allows for conditional execution of code fragments. If the expression evaluates to true, PHP will execute statement, and if it evaluates to false - it'll ignore it.<br><br>The following example would display a is bigger than b if $a is bigger than $b: </p>
+    <p class="code-container">
+      <code>
+        &lt?php<br>
+        if ($a > $b)<br>
+        &emsp;&emsp;echo "a is bigger than b";<br>
+        ?>
+      </code>
+    </p>
+    <p>Often you'd want to have more than one statement to be executed conditionally. Of course, there's no need to wrap each statement with an if clause. Instead, you can group several statements into a statement group. For example, this code would display a is bigger than b if $a is bigger than $b, and would then assign the value of $a into $b: </p>
+    <p class="code-container">
+      <code>
+        &lt?php<br>
+        if ($a > $b) {<br>
+        &emsp;&emsp;echo "a is bigger than b";<br>
+        &emsp;&emsp;$b = $a;<br>
+        }<br>
+        ?>
+      </code>
+    </p>
+    <p>If statements can be nested infinitely within other if statements, which provides you with complete flexibility for conditional execution of the various parts of your program.<br><br>Often you'd want to execute a statement if a certain condition is met, and a different statement if the condition is not met. This is what else is for. else extends an if statement to execute a statement in case the expression in the if statement evaluates to false. For example, the following code would display a is greater than b if $a is greater than $b, and a is NOT greater than b otherwise: </p>
+    <p class="code-container">
+      <code>
+        &lt?php<br>
+        if ($a > $b) {<br>
+        &emsp;&emsp;echo "a is greater than b";<br>
+        } else {<br>
+        &emsp;&emsp;echo "a is NOT greater than b";<br>
+        }<br>
+        ?>
+      </code>
+    </p><br>
+    <h2>Else statements</h2>
+    <p>&emsp;&emsp;The else statement is only executed if the if expression evaluated to false, and if there were any elseif expressions - only if they evaluated to false as well<br><br>In case of nested if-else statements, an else is always associated with the nearest if. </p>
+    <p class="code-container">
+      <code>
+        &lt?php<br>
+        $a = false;<br>
+        $b = true;<br>
+        if ($a)<br>
+        &emsp;&emsp;if ($b)<br>
+        &emsp;&emsp;&emsp;&emsp;echo "b";<br>
+        else<br>
+        &emsp;&emsp;echo "c";<br>
+        ?>
+      </code>
+    </p>
+    <p>Despite the indentation (which does not matter for PHP), the else is associated with the if ($b), so the example does not produce any output. While relying on this behavior is valid, it is recommended to avoid it by using curly braces to resolve potential ambiguities. </p><br>
+
+    <h2>elseif/else if statements</h2>
+    <p>&emsp;&emsp;The elseif statement, as its name suggests, is a combination of if and else. Like else statements, it extends an if statement to execute a different statement in case the original if expression evaluates to false. However, unlike else statements, it will execute that alternative expression only if the elseif conditional expression evaluates to true. For example, the following code would display a is bigger than b, a equal to b or a is smaller than b: </p>
+
+    <p class="code-container">
+      <code>
+        &lt?php<br>
+        if ($a > $b) {<br>
+        &emsp;&emsp;echo "a is bigger than b";<br>
+        } elseif ($a == $b) {<br>
+        &emsp;&emsp;echo "a is equal to b";<br>
+        } else {<br>
+        &emsp;&emsp;echo "a is smaller than b";<br>
+        }<br>
+        ?>
+      </code>
+    </p>
+  </section>
+
+  <section class="main-section" id="Looping_statements">
+    <header>Looping statements</header>
+    <p>&emsp;&emsp;Looping statements are a great way to perform an operation a repeated number of times. In this section we will talk about the various types of looping statements in php.</p><br>
+
+    <h2>While loops</h2>
+    <p>while loops are the simplest type of loop in PHP. The basic form of a while statement is: </p>
+    <p class="code-container">
+      <code>
+        while (condition){<br>
+        &emsp;&emsp;statement<br>
+        &emsp;&emsp;}<br>
+      </code>
+    </p>
+    <p> The meaning of a while statement is simple. It tells PHP to execute the nested statement(s) repeatedly, as long as the while expression evaluates to true. The value of the expression is checked each time at the beginning of the loop, so even if this value changes during the execution of the nested statement(s), execution will not stop until the end of the iteration (each time PHP runs the statements in the loop is one iteration). If the while expression evaluates to false from the very beginning, the nested statement(s) won't even be run once.<br><br>
+
+      Like with the if statement, you can group multiple statements within the same while loop by surrounding a group of statements with curly braces, or by using the alternate syntax:</p>
+    <p class="code-container">
+      <code>
+        while (condition):<br>
+        &emsp;&emsp;statement1;<br>
+        &emsp;&emsp;statement2;<br>
+        &emsp;&emsp;statement3;<br>
+        &emsp;&emsp;...<br>
+        &emsp;&emsp;statement n;<br>
+        endwhile;<br>
+      </code>
+    </p>
+    <br>
+    <p>The following examples are identical, and both print the numbers 1 through 10:</p>
+    <p class="code-container">
+      <code>
+        &lt?php<br>
+        <span class="comment">/* example 1 */</span><br>
+        <br>
+        $i = 1;<br>
+        while ($i <= 10) {<br>
+          &emsp;&emsp;echo $i++; <span class="comment">/* the printed value would be<br>
+            &emsp;&emsp;&emsp;&emsp;$i before the increment<br>
+            &emsp;&emsp;&emsp;&emsp;(post-increment) */</span><br>
+          }<br>
+          <br>
+          <span class="comment">/* example 2 */</span><br>
+          <br>
+          $i = 1;<br>
+          while ($i <= 10):<br>
+            &emsp;&emsp;echo $i;<br>
+            &emsp;&emsp;$i++;<br>
+            endwhile;<br>
+            ?>
+      </code>
+    </p><br>
+
+    <h2>Do-while loops</h2>
+    <p>&emsp;&emsp;do-while loops are very similar to while loops, except the truth expression is checked at the end of each iteration instead of in the beginning. The main difference from regular while loops is that the first iteration of a do-while loop is guaranteed to run (the truth expression is only checked at the end of the iteration), whereas it may not necessarily run with a regular while loop (the truth expression is checked at the beginning of each iteration, if it evaluates to false right from the beginning, the loop execution would end immediately).<br><br>
+
+      There is just one syntax for do-while loops: </p>
+    <p class="code-container">
+      <code>
+        &lt?php<br>
+        $i = 0;<br>
+        do {<br>
+        &emsp;&emsp;echo $i;<br>
+        } while ($i > 0);<br>
+        ?>
+      </code>
+    </p>
+    <p> The above loop would run one time exactly, since after the first iteration, when truth expression is checked, it evaluates to false ($i is not bigger than 0) and the loop execution ends.<br><br>
+
+      Advanced programmers may be familiar with a different usage of the do-while loop, to allow stopping execution in the middle of code blocks, by encapsulating them with do-while (0), and using the break statement (a statement used to exit the current loop). The following code fragment demonstrates this: </p>
+    <p class="code-container">
+      <code>
+        &lt?php<br>
+        do {<br>
+        &emsp;&emsp;if ($i < 5) {<br>
+          &emsp;&emsp;&emsp;&emsp;echo "i is not big enough";<br>
+          &emsp;&emsp;&emsp;&emsp;break;<br>
+          &emsp;&emsp;}<br>
+          &emsp;&emsp;$i *= $factor;<br>
+          &emsp;&emsp;if ($i < $minimum_limit) {<br>
+            &emsp;&emsp;&emsp;&emsp;break;<br>
+            &emsp;&emsp;}<br>
+            &emsp;&emsp;echo "i is ok";<br>
+            <br>
+            &emsp;&emsp;<span class="comment">/* process i */</span><br>
+            <br>
+            } while (0);<br>
+            ?>
+      </code>
+    </p><br>
+
+    <h2>For loops</h2>
+    <p>for loops are more complex than most other loops in PHP. The syntax of a for loop is:</p>
+    <p class="code-container">
+      <code>
+        for (expr1; expr2; expr3)<br>
+        &emsp;&emsp;statement;
+      </code>
+    </p>
+    <p> The first expression (expr1) is evaluated (executed) once unconditionally at the beginning of the loop.
+      <br><br>
+      In the beginning of each iteration, expr2 is evaluated. If it evaluates to true, the loop continues and the nested statement(s) are executed. If it evaluates to false, the execution of the loop ends. At the end of each iteration, expr3 is evaluated (executed).
+      <br><br>
+      Each of the expressions can be empty or contain multiple expressions separated by commas. In expr2, all expressions separated by a comma are evaluated but the result is taken from the last part. expr2 being empty means the loop should be run indefinitely. This may not be as useless as you might think, since often you'd want to end the loop using a conditional break statement instead of using the for truth expression.
+      <br><br>
+      Consider the following examples. All of them display the numbers 1 through 10:
+    </p>
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        <span class="comment">/* example 1 */</span><br>
+        <br>
+        for ($i = 1; $i <= 10; $i++) {<br>
+          &emsp;&emsp;echo $i;<br>
+          }<br>
+          <br>
+          <span class="comment">/* example 2 */</span><br>
+          <br>
+          for ($i = 1; ; $i++) {<br>
+          &emsp;&emsp;if ($i > 10) {<br>
+          &emsp;&emsp;&emsp;&emsp;break;<br>
+          &emsp;&emsp;}<br>
+          &emsp;&emsp;echo $i;<br>
+          }<br>
+          <br>
+          <span class="comment">/* example 3 */</span><br>
+          <br>
+          $i = 1;<br>
+          for (; ; ) {<br>
+          &emsp;&emsp;if ($i > 10) {<br>
+          &emsp;&emsp;&emsp;&emsp;break;<br>
+          &emsp;&emsp;}<br>
+          &emsp;&emsp;echo $i;<br>
+          &emsp;&emsp;$i++;<br>
+          }<br>
+          <br>
+          /* example 4 */<br>
+          <br>
+          for ($i = 1, $j = 0; $i <= 10; $j +=$i, print $i, $i++);<br>
+            ?>
+
+      </code>
+    </p>
+    <p> Of course, the first example appears to be the nicest one (or perhaps the fourth), but you may find that being able to use empty expressions in for loops comes in handy in many occasions.<br><br>
+
+      PHP also supports the alternate "colon syntax" for for loops. </p>
+    <p class="code-container">
+      <code>
+        for (expr1; expr2; expr3):<br>
+        &emsp;&emsp;statement<br>
+        &emsp;&emsp;...<br>
+        endfor;
+      </code>
+    </p>
+    <p>It's a common thing to many users to iterate through arrays like in the example below:</p>
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        <span class="comment">/*<br>
+          * This is an array with some data we want to modify<br>
+          * when running through the for loop.<br>
+          */</span><br>
+        $people = array(<br>
+        &emsp;&emsp;array('name' => 'Kalle', 'salt' => 856412),<br>
+        &emsp;&emsp;array('name' => 'Pierre', 'salt' => 215863)<br>
+        );<br>
+        <br>
+        for($i = 0; $i < count($people); ++$i) {<br>
+          &emsp;&emsp;$people[$i]['salt'] = mt_rand(000000, 999999);<br>
+          }<br>
+          ?>
+
+      </code>
+    </p>
+    <p>The above code can be slow, because the array size is fetched on every iteration. Since the size never changes, the loop be easily optimized by using an intermediate variable to store the size instead of repeatedly calling count():</p>
+    <p class="code-container">
+      <code>
+        for (expr1; expr2; expr3):<br>
+        &emsp;&emsp;statement<br>
+        &emsp;&emsp;...<br>
+        endfor;
+      </code>
+    </p>
+    <p>It's a common thing to many users to iterate through arrays like in the example below:</p>
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        $people = array(<br>
+        &emsp;&emsp;array('name' => 'Kalle', 'salt' => 856412),<br>
+        &emsp;&emsp;array('name' => 'Pierre', 'salt' => 215863)<br>
+        );<br>
+        <br>
+        for($i = 0, $size = count($people); $i < $size; ++$i) {<br>
+          &emsp;&emsp;$people[$i]['salt'] = mt_rand(000000, 999999);<br>
+          }<br>
+          ?>
+
+      </code>
+    </p><br>
+
+    <h2>Foreach loops</h2>
+    <p>&emsp;&emsp;The foreach construct provides an easy way to iterate over arrays. foreach works only on arrays and objects, and will issue an error when you try to use it on a variable with a different data type or an uninitialized variable. There are two syntaxes:
+    <p>
+    <p class="code-container">
+      <code>
+        <span class="comment">//syntax 1</span><br>
+        foreach (iterable_expression as $value)<br>
+        &emsp;&emsp;statement<br>
+        <br>
+        <span class="comment">//syntax 2</span><br>
+        foreach (iterable_expression as $key => $value)<br>
+        &emsp;&emsp;statement<br>
+      </code>
+    </p>
+    <p> The first form traverses the iterable given by iterable_expression. On each iteration, the value of the current element is assigned to $value.<br>
+      <br>
+      The second form will additionally assign the current element's key to the $key variable on each iteration.<br>
+      <br>
+      Note that foreach does not modify the internal array pointer, which is used by functions such as current() and key().<br>
+      <br>
+      It is possible to customize object iteration.<br>
+      <br>
+      In order to be able to directly modify array elements within the loop precede $value with &. In that case the value will be assigned by reference.
+    </p>
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        $arr = array(1, 2, 3, 4);<br>
+        foreach ($arr as &$value) {<br>
+        &emsp;&emsp;$value = $value * 2;<br>
+        }<br>
+        // $arr is now array(2, 4, 6, 8)<br>
+        unset($value); <span class="comment">//break the reference with the last element</span><br>
+        ?>
+
+      </code>
+    </p>
+    <p>Here are some more examples to demonstrate usage:</p>
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        <span class="comment">/* foreach example 1: value only */</span><br>
+        <br>
+        $a = array(1, 2, 3, 17);<br>
+        <br>
+        foreach ($a as $v) {<br>
+        &emsp;&emsp;echo "Current value of \$a: $v.\n";<br>
+        }<br>
+        <br>
+        <span class="comment">/* foreach example 2: value (with its manual access notation printed for illustration) */</span><br>
+        <br>
+        $a = array(1, 2, 3, 17);<br>
+        <br>
+        $i = 0; <span class="comment">/* for illustrative purposes only */</span><br>
+        <br>
+        foreach ($a as $v) {<br>
+        &emsp;&emsp;echo "\$a[$i] => $v.\n";<br>
+        &emsp;&emsp;$i++;<br>
+        }<br>
+        <br>
+        <span class="comment">/* foreach example 3: key and value */</span><br>
+        <br>
+        $a = array(<br>
+        &emsp;&emsp;"one" => 1,<br>
+        &emsp;&emsp;"two" => 2,<br>
+        &emsp;&emsp;"three" => 3,<br>
+        &emsp;&emsp;"seventeen" => 17<br>
+        );<br>
+        <br>
+        foreach ($a as $k => $v) {<br>
+        &emsp;&emsp;echo "\$a[$k] => $v.\n";<br>
+        }<br>
+        <br>
+        <span class="comment">/* foreach example 4: multi-dimensional arrays */</span><br>
+        $a = array();<br>
+        $a[0][0] = "a";<br>
+        $a[0][1] = "b";<br>
+        $a[1][0] = "y";<br>
+        $a[1][1] = "z";<br>
+        <br>
+        foreach ($a as $v1) {<br>
+        &emsp;&emsp;foreach ($v1 as $v2) {<br>
+        &emsp;&emsp;&emsp;&emsp;echo "$v2\n";<br>
+        &emsp;&emsp;}<br>
+        }<br>
+        <br>
+        <span class="comment">/* foreach example 5: dynamic arrays */</span><br>
+        <br>
+        foreach (array(1, 2, 3, 4, 5) as $v) {<br>
+        &emsp;&emsp;echo "$v\n";<br>
+        }<br>
+        ?>
+
+      </code>
+    </p>
+  </section>
+
+  <section class="main-section" id="Arrays">
+    <header>Arrays</header>
+    <p> &emsp;&emsp;An array in PHP is actually an ordered map. A map is a type that associates values to keys. This type is optimized for several different uses; it can be treated as an array, list (vector), hash table (an implementation of a map), dictionary, collection, stack, queue, and probably more. As array values can be other arrays, trees and multidimensional arrays are also possible.<br>
+      br>
+      Explanation of those data structures is beyond the scope of this guide, but at least one example is provided for each of them. For more information, look towards the considerable literature that exists about this broad topic.<br><br>An array can be created using the array() language construct. It takes any number of comma-separated key => value pairs as arguments.</p>
+
+    <p class="code-container">
+      <code>
+        array(<br>
+        &emsp;&emsp;key => value,<br>
+        &emsp;&emsp;key2 => value2,<br>
+        &emsp;&emsp;key3 => value3,<br>
+        &emsp;&emsp;...<br>
+        )
+      </code>
+    </p>
+
+    <p>The comma after the last array element is optional and can be omitted. This is usually done for single-line arrays, i.e. array(1, 2) is preferred over array(1, 2, ). For multi-line arrays on the other hand the trailing comma is commonly used, as it allows easier addition of new elements at the end.<br><br>A short array syntax also exists which replaces array() with []. </p>
+
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        $array = array(<br>
+        &emsp;&emsp;"foo" => "bar",<br>
+        &emsp;&emsp;"bar" => "foo",<br>
+        );<br>
+        <br>
+        <span class="comment">// Using the short array syntax</span><br>
+        $array = [<br>
+        &emsp;&emsp;"foo" => "bar",<br>
+        &emsp;&emsp;"bar" => "foo",<br>
+        ];<br>
+        ?>
+
+      </code>
+    </p>
+
+    <p> The key can either be an int or a string. The value can be of any type.<br>
+      <br>
+      Additionally the following key casts will occur:
+    </p>
+    <ul>
+      <li>Strings containing valid decimal ints, unless the number is preceded by a + sign, will be cast to the int type. E.g. the key "8" will actually be stored under 8. On the other hand "08" will not be cast, as it isn't a valid decimal integer. </li>
+      <li>Floats are also cast to ints, which means that the fractional part will be truncated. E.g. the key 8.7 will actually be stored under 8. </li>
+      <li>Bools are cast to ints, too, i.e. the key true will actually be stored under 1 and the key false under 0. </li>
+      <li>Null will be cast to the empty string, i.e. the key null will actually be stored under "". </li>
+      <li>Arrays and objects can not be used as keys. Doing so will result in a warning: Illegal offset type. </li>
+    </ul>
+
+    <p>If multiple elements in the array declaration use the same key, only the last one will be used as all others are overwritten. </p>
+
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        $array = array(<br>
+        &emsp;&emsp;1 => "a",<br>
+        &emsp;&emsp;"1" => "b",<br>
+        &emsp;&emsp;1.5 => "c",<br>
+        &emsp;&emsp;true => "d",<br>
+        );<br>
+        var_dump($array);<br>
+        ?>
+
+      </code>
+    </p>
+    <p>The above example will output:</p>
+    <p class="code-container">
+      <code>
+        array(1) {<br>
+        &emsp;&emsp;[1]=><br>
+        &emsp;&emsp;string(1) "d"<br>
+        }
+      </code>
+    </p>
+    <p> As all the keys in the above example are cast to 1, the value will be overwritten on every new element and the last assigned value "d" is the only one left over.
+      <br><br>
+      PHP arrays can contain int and string keys at the same time as PHP does not distinguish between indexed and associative arrays.
+    </p>
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        $array = array(<br>
+        &emsp;&emsp;"foo" => "bar",<br>
+        &emsp;&emsp;"bar" => "foo",<br>
+        &emsp;&emsp;100 => -100,<br>
+        &emsp;&emsp;-100 => 100,<br>
+        );<br>
+        var_dump($array);<br>
+        ?>
+
+      </code>
+    </p>
+    <p>The above example will output:</p>
+    <p class="code-container">
+      <code>
+        array(4) {<br>
+        &emsp;&emsp;["foo"]=><br>
+        &emsp;&emsp;string(3) "bar"<br>
+        &emsp;&emsp;["bar"]=><br>
+        &emsp;&emsp;string(3) "foo"<br>
+        &emsp;&emsp;[100]=><br>
+        &emsp;&emsp;int(-100)<br>
+        &emsp;&emsp;[-100]=><br>
+        &emsp;&emsp;int(100)<br>
+        }
+      </code>
+    </p>
+    <p>The key is optional. If it is not specified, PHP will use the increment of the largest previously used int key. </p>
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        $array = array("foo", "bar", "hello", "world");<br>
+        var_dump($array);<br>
+        ?>
+
+      </code>
+    </p>
+    <p>The above example will output:</p>
+    <p class="code-container">
+      <code>
+        array(4) {<br>
+        &emsp;&emsp;[0]=><br>
+        &emsp;&emsp;string(3) "foo"<br>
+        &emsp;&emsp;[1]=><br>
+        &emsp;&emsp;string(3) "bar"<br>
+        &emsp;&emsp; [2]=><br>
+        &emsp;&emsp;string(5) "hello"<br>
+        &emsp;&emsp;[3]=><br>
+        &emsp;&emsp;string(5) "world"<br>
+        }
+      </code>
+    </p>
+    <p>It is possible to specify the key only for some elements and leave it out for others:</p>
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        $array = array(<br>
+        &emsp;&emsp;&emsp;&emsp;"a",<br>
+        &emsp;&emsp;&emsp;&emsp;"b",<br>
+        &emsp;&emsp;6 => "c",<br>
+        &emsp;&emsp;&emsp;&emsp;"d",<br>
+        );<br>
+        var_dump($array);<br>
+        ?>
+
+      </code>
+    </p>
+    <p>The above example will output:</p>
+    <p class="code-container">
+      <code>
+        array(4) {<br>
+        &emsp;&emsp;[0]=><br>
+        &emsp;&emsp;string(1) "a"<br>
+        &emsp;&emsp;[1]=><br>
+        &emsp;&emsp;string(1) "b"<br>
+        &emsp;&emsp;[6]=><br>
+        &emsp;&emsp;string(1) "c"<br>
+        &emsp;&emsp;[7]=><br>
+        &emsp;&emsp;string(1) "d"<br>
+        }
+      </code>
+    </p>
+    <p>As you can see the last value "d" was assigned the key 7. This is because the largest integer key before that was 6.<br><br>This example includes all variations of type casting of keys and overwriting of elements.</p>
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        $array = array(<br>
+        &emsp;&emsp;1 => 'a',
+        &emsp;&emsp;'1' => 'b',&emsp;&emsp;&emsp;&emsp;<span class="comment">// the value "a" will be overwritten by "b"</span><br>
+        &emsp;&emsp;1.5 => 'c',&emsp;&emsp;&emsp;&emsp;<span class="comment">// the value "b" will be overwritten by "c"</span><br>
+        &emsp;&emsp;-1 => 'd',<br>
+        &emsp;&emsp;'01' => 'e',&emsp;&emsp;&emsp;&emsp;<span class="comment">// as this is not an integer string it will NOT override the key for 1</span><br>
+        &emsp;&emsp;'1.5' => 'f',&emsp;&emsp;&emsp;&emsp;<span class="comment">// as this is not an integer string it will NOT override the key for 1</span><br>
+        &emsp;&emsp;true => 'g',&emsp;&emsp;&emsp;&emsp;<span class="comment">// the value "c" will be overwritten by "g"</span><br>
+        &emsp;&emsp;false => 'h',<br>
+        &emsp;&emsp;'' => 'i',<br>
+        &emsp;&emsp;null => 'j',&emsp;&emsp;&emsp;&emsp;<span class="comment">// the value "i" will be overwritten by "j"</span><br>
+        &emsp;&emsp;'k',&emsp;&emsp;&emsp;&emsp;<span class="comment">// value "k" is assigned the key 2. This is because the largest integer key before that was 1</span><br>
+        &emsp;&emsp;2 => 'l',&emsp;&emsp;&emsp;&emsp;<span class="comment">// the value "k" will be overwritten by "l"</span><br>
+        );
+
+        var_dump($array);
+        ?>
+
+      </code>
+    </p>
+    <p>The above example will output:</p>
+    <p class="code-container">
+      <code>
+        array(7) {<br>
+        &emsp;&emsp;[1]=><br>
+        &emsp;&emsp;string(1) "g"<br>
+        &emsp;&emsp;[-1]=><br>
+        &emsp;&emsp;string(1) "d"<br>
+        &emsp;&emsp;["01"]=><br>
+        &emsp;&emsp;string(1) "e"<br>
+        &emsp;&emsp;["1.5"]=><br>
+        &emsp;&emsp;string(1) "f"<br>
+        &emsp;&emsp;[0]=><br>
+        &emsp;&emsp;string(1) "h"<br>
+        &emsp;&emsp;[""]=><br>
+        &emsp;&emsp;string(1) "j"<br>
+        &emsp;&emsp;[2]=><br>
+        &emsp;&emsp;string(1) "l"<br>
+        }
+      </code>
+    </p>
+  </section>
+
+  <section class="main-section" id="Function_declarations">
+    <header>Function declarations</header>
+    <p>A function may be defined using syntax such as the following Pseudo code:</p>
+    <p class="code-container">
+      <code>
+        &lt?php<br>
+        function foo($arg_1, $arg_2, /* ..., */ $arg_n)<br>
+        {<br>
+        &emsp;&emsp;echo "Example function.\n";<br>
+        &emsp;&emsp;return $retval;<br>
+        }<br>
+        ?>
+      </code>
+    </p>
+    <p> Any valid PHP code may appear inside a function, even other functions and class definitions.
+      <br><br>
+      Function names follow the same rules as other labels in PHP. A valid function name starts with a letter or underscore, followed by any number of letters, numbers, or underscores. Functions need not be defined before they are referenced, except when a function is conditionally defined as shown in the two examples below.
+      <br><br>
+      When a function is defined in a conditional manner such as the two examples shown. Its definition must be processed prior to being called. Here is an example of a conditional function:
+    </p>
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        $makefoo = true;<br>
+        <br>
+        <span class="comment">/* We can't call foo() from here <br>
+          &emsp;&emsp;since it doesn't exist yet,<br>
+          &emsp;&emsp;but we can call bar() */</span><br>
+        <br>
+        bar();<br>
+        <br>
+        if ($makefoo) {<br>
+        &emsp;&emsp;function foo()<br>
+        &emsp;&emsp;{<br>
+        &emsp;&emsp;&emsp;&emsp;echo "I don't exist until program execution reaches me.\n";<br>
+        &emsp;&emsp;}<br>
+        }<br>
+        <br>
+        <span class="comment">/* Now we can safely call foo()<br>
+          &emsp;&emsp;since $makefoo evaluated to true */</span><br>
+        <br>
+        if ($makefoo) foo();<br>
+        <br>
+        function bar()<br>
+        {<br>
+        &emsp;&emsp;echo "I exist immediately upon program start.\n";<br>
+        }<br>
+        ?>
+
+      </code>
+    </p>
+    <p>It is also possible to define functions within other functions as shown below:</p>
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        function foo() <br>
+        {<br>
+        &emsp;&emsp;function bar()<br>
+        &emsp;&emsp;{<br>
+        &emsp;&emsp;&emsp;&emsp;echo "I don't exist until foo() is called.\n";<br>
+        &emsp;&emsp;}<br>
+        }<br>
+        <br>
+        <span class="comment">/* We can't call bar() yet<br>
+          &emsp;&emsp;since it doesn't exist. */</span><br>
+        <br>
+        foo();<br>
+        <br>
+        <span class="comment">/* Now we can call bar(),<br>
+          &emsp;&emsp;foo()'s processing has<br>
+          &emsp;&emsp;made it accessible. */</span><br>
+        <br>
+        bar();<br>
+        ?>
+      </code>
+    </p>
+    <p> All functions and classes in PHP have the global scope - they can be called outside a function even if they were defined inside and vice versa. PHP does not support function overloading, nor is it possible to undefine or redefine previously-declared functions. Bear in mind that function names are case-insensitive for the ASCII characters A to Z, though it is usually good form to call functions as they appear in their declaration. Both variable number of arguments and default arguments are supported in functions.
+      <br><br>
+      It is also possible to call recursive functions in PHP, as shown in the example below:
+    </p>
+    <p class="code-container">
+      <code>
+
+        &lt?php<br>
+        function recursion($a)<br>
+        {<br>
+        &emsp;&emsp;if ($a < 20) {<br>
+          &emsp;&emsp;&emsp;&emsp;echo "$a\n";<br>
+          &emsp;&emsp;&emsp;&emsp;recursion($a + 1);<br>
+          &emsp;&emsp;}<br>
+          }<br>
+          ?>
+      </code>
+    </p>
+    <p>Be aware that recursive function/method calls with over 100-200 recursion levels can smash the stack and cause a termination of the current script. Infinite recursion especially is considered a programming error. </p>
+  </section>
+
+  <section class="main-section" id="Reference">
+    <header>Reference</header>
+    <p>&emsp;&emsp;All documentation is taken from the <a href="https://www.php.net/manual/en/" target="_blank">PHP online manual</a></p>
+
+  </section>
+</main>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
